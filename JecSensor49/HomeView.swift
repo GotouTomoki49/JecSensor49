@@ -15,18 +15,20 @@ struct HomeView: View {
     var body: some View {
         VStack {
             
+            //ロゴ
             Image("logo1")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200)
             
-            
+            //動画プレイヤー
             PlayerView(video: $selected)
                 .frame(
                     width: playerSize.width,
                     height: playerSize.height
                 )
             
+            //動画の選択
             Picker("動画の選択", selection: $selected) {
                 ForEach(Video.allCases, id: \.self) { video in
                     Text(video.rawValue.uppercased())
@@ -49,10 +51,12 @@ struct HomeView: View {
 
 enum Video: String, CaseIterable {
     
+    //動画選択Pickerのid
     case jec
     case voice
     case international
     
+    //YouTube動画のid
     var videoId: String {
         switch self {
         case .jec: return "ktEgR3-5UYI"

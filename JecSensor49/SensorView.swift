@@ -29,7 +29,7 @@ struct ARViewContainer: UIViewRepresentable {
         let anchor = AnchorEntity(plane: .horizontal, minimumBounds: [0.15, 0.15])
         arView.scene.anchors.append(anchor)
         
-        // 表示するテキストを作成
+        // 表示するテキスト
         let textMesh = MeshResource.generateText(
             "日専祭",
             extrusionDepth: 2.0,
@@ -39,18 +39,19 @@ struct ARViewContainer: UIViewRepresentable {
             lineBreakMode: .byTruncatingTail)
         
         // 環境マッピングするマテリアルを設定
-        let textMaterial = SimpleMaterial(color: UIColor.red, roughness: 0.0, isMetallic: true)
+        //Color-Orange
+        let textMaterial = SimpleMaterial(color: UIColor.orange, roughness: 0.0, isMetallic: true)
         let textModel = ModelEntity(mesh: textMesh, materials: [textMaterial])
         textModel.scale = SIMD3<Float>(0.1, 0.1, 0.1) // 10分の1に縮小
         textModel.position = SIMD3<Float>(0.0, 0.0, -0.2) // 奥0.2m
         anchor.addChild(textModel)
         
-        // 箱を作成
+        //箱を作成
         //0.03サイズ
         let boxMesh = MeshResource.generateBox(size: 0.03)
         
         //単色の設定
-        //箱-青
+        //Color-blue
         let boxMaterial = UnlitMaterial(color: UIColor.blue)
         let boxModel = ModelEntity(mesh: boxMesh, materials: [boxMaterial])
         // 左0.2m
@@ -62,7 +63,7 @@ struct ARViewContainer: UIViewRepresentable {
         let sphereMesh = MeshResource.generateSphere(radius: 0.03)
         
         // 環境マッピングするマテリアルを設定
-        //球体-緑
+        //Color-green
         let sphereMaterial = SimpleMaterial(color: UIColor.green, roughness: 0.0, isMetallic: true)
         let sphereModel = ModelEntity(mesh: sphereMesh, materials: [sphereMaterial])
         sphereModel.position = SIMD3<Float>(0.0, 0.0, 0.0)
