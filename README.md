@@ -1,2 +1,2 @@
 # 使用動画
-[!['altテキスト']('https://www.youtube.com/watch?v=Khie-FP4N1w')
+[!['動画'('https://www.youtube.com/watch?v=Khie-FP4N1w')
